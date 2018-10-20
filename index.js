@@ -1,17 +1,18 @@
 #!/usr/bin/env node
 
-const inquirer = require("inquirer");
-const chalk = require("chalk");
-const figlet = require("figlet");
-const shell = require("shelljs");
+const inquirer = require('inquirer');
+const chalk = require('chalk');
+const figlet = require('figlet');
+const shell = require('shelljs');
+const fs = require('fs');
 
 const init = () => {
     console.log(
         chalk.green(
-            figlet.textSync("Node JS CLI", {
-                font: "Ghost",
-                horizontalLayout: "default",
-                verticalLayout: "default"
+            figlet.textSync('Node JS CLI', {
+                font: 'Ghost',
+                horizontalLayout: 'default',
+                verticalLayout: 'default'
             })
         )
     );
@@ -20,17 +21,17 @@ const init = () => {
 const askQuestions = () => {
     const questions = [
         {
-            name: "FILENAME",
-            type: "input",
-            message: "What is the name of the file without extension?"
+            name: 'FILENAME',
+            type: 'input',
+            message: 'What is the name of the file without extension?'
         },
         {
-            type: "list",
-            name: "EXTENSION",
-            message: "What is the file extension?",
-            choices: [".rb", ".js", ".php", ".css"],
+            type: 'list',
+            name: 'EXTENSION',
+            message: 'What is the file extension?',
+            choices: ['.rb', '.js', '.php', '.css'],
             filter: function (val) {
-                return val.split(".")[1];
+                return val.split('.')[1];
             }
         }
     ];
