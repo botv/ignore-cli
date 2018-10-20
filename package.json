@@ -1,0 +1,29 @@
+{
+  "name": "gitignore-cli",
+  "version": "1.0.0",
+  "description": "A CLI for generating .gitignore files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/botv/gitignore.git"
+  },
+  "author": "Ben Botvinick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/botv/gitignore/issues"
+  },
+  "homepage": "https://github.com/botv/gitignore#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "figlet": "^1.2.1",
+    "inquirer": "^6.2.0",
+    "shelljs": "^0.8.2"
+  },
+  "bin": {
+    "gitignore": "./index.js"
+  }
+}
