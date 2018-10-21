@@ -2,67 +2,68 @@
 
 const inquirer = require('inquirer');
 const chalk = require('chalk');
-const figlet = require('figlet');
-const shell = require('shelljs');
+const concat = require('concat');
 const fs = require('fs');
+const path = require('path');
 
-const init = () => {
+inquirer.registerPrompt('search-checkbox', require('inquirer-search-checkbox'));
+
+function init() {
+    const title = fs.readFileSync(path.join(__dirname, 'title.txt'));
     console.log(
-        chalk.green(
-            figlet.textSync('Node JS CLI', {
-                font: 'Ghost',
-                horizontalLayout: 'default',
-                verticalLayout: 'default'
-            })
-        )
+        chalk.white('\n' + title + '\n')
     );
-};
+}
 
-const askQuestions = () => {
+function askQuestions() {
     const questions = [
         {
-            name: 'FILENAME',
-            type: 'input',
-            message: 'What is the name of the file without extension?'
+            type: 'search-checkbox',
+            name: 'files',
+            message: 'Which gitignores would you like to use?',
+            choices: fs.readdirSync(path.join(__dirname, 'templates')).map(x => x.replace('.gitignore', ''))
         },
         {
-            type: 'list',
-            name: 'EXTENSION',
-            message: 'What is the file extension?',
-            choices: ['.rb', '.js', '.php', '.css'],
-            filter: function (val) {
-                return val.split('.')[1];
-            }
+            type: 'confirm',
+            name: 'confirmation',
+            message: `Create .gitignore file in ${process.cwd()}?`
         }
     ];
     return inquirer.prompt(questions);
-};
+}
 
-const createFile = (filename, extension) => {
-    const filePath = `${process.cwd()}/${filename}.${extension}`;
-    shell.touch(filePath);
-    return filePath;
-};
-
-const success = filepath => {
+function success() {
     console.log(
-        chalk.white.bgGreen.bold(`Done! File created at ${filepath}`)
+        chalk.green.bold(`Created .gitignore file in ${process.cwd()}`)
     );
-};
+}
 
-const run = async () => {
+function failure() {
+    console.log(
+        chalk.red.bold(`Process cancelled.`)
+    );
+}
+
+async function run() {
     // show script introduction
     init();
 
     // ask questions
     const answers = await askQuestions();
-    const {FILENAME, EXTENSION} = answers;
+    const {files, confirmation} = answers;
 
-    // create the file
-    const filePath = createFile(FILENAME, EXTENSION);
+    if (confirmation) {
+        concat(files.map(x => path.join(__dirname, 'templates', x + '.gitignore')))
+            .then((result) => {
+                fs.writeFileSync(`${process.cwd()}/.gitignore`, result);
+            });
 
-    // show success message
-    success(filePath);
-};
+        // show success message
+        success();
+    } else {
+        // show failure message
+        failure()
+    }
+}
 
 run();

@@ -19,9 +19,9 @@
   "homepage": "https://github.com/botv/gitignore#readme",
   "dependencies": {
     "chalk": "^2.4.1",
-    "figlet": "^1.2.1",
+    "concat": "^1.0.3",
     "inquirer": "^6.2.0",
-    "shelljs": "^0.8.2"
+    "inquirer-search-checkbox": "^1.0.0"
   },
   "bin": {
     "gitignore": "./index.js"
