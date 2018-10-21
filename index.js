@@ -20,6 +20,7 @@ function askQuestions() {
         {
             type: 'search-checkbox',
             name: 'files',
+            pageSize: 9,
             message: 'Which gitignores would you like to use?',
             choices: fs.readdirSync(path.join(__dirname, 'templates')).map(x => x.replace('.gitignore', ''))
         },
@@ -35,12 +36,6 @@ function askQuestions() {
 function success() {
     console.log(
         chalk.green.bold(`Created .gitignore file in ${process.cwd()}`)
-    );
-}
-
-function failure() {
-    console.log(
-        chalk.red.bold(`Process cancelled.`)
     );
 }
 
@@ -60,9 +55,6 @@ async function run() {
 
         // show success message
         success();
-    } else {
-        // show failure message
-        failure()
     }
 }
 
