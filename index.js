@@ -20,7 +20,6 @@ function askQuestions() {
         {
             type: 'search-checkbox',
             name: 'files',
-            pageSize: 9,
             message: 'Which gitignores would you like to use?',
             choices: fs.readdirSync(path.join(__dirname, 'templates')).map(x => x.replace('.gitignore', ''))
         },
