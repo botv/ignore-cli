@@ -1,2 +1,7 @@
-# gitignore
-😮 Create custom .gitignore files with easy CLI tool
+# ignore-cli
+
+### Installation
+`npm install -g ignore-cli`
+
+### Usage
+`ignore`
