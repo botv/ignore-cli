@@ -1,6 +1,6 @@
 {
   "name": "ignore-cli",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Easily generate .gitignore files.",
   "keywords": [
     "git",
@@ -20,7 +20,7 @@
     "url": "git+https://github.com/botv/ignore-cli.git"
   },
   "author": "Ben Botvinick",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/botv/ignore-cli/issues"
   },
