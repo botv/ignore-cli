@@ -1,7 +1,7 @@
 {
   "name": "ignore-cli",
-  "version": "1.0.4",
-  "description": "A CLI for generating .gitignore files.",
+  "version": "1.0.5",
+  "description": "Easily generate .gitignore files.",
   "keywords": [
     "git",
     "gitignore",
