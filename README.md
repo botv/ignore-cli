@@ -1,6 +1,6 @@
 # Ignore CLI
 
-[![npm version](http://img.shields.io/npm/v/gh-badges.svg)](https://npmjs.org/package/ignore-cli)
+[![npm version](https://badge.fury.io/js/ignore-cli.svg)](https://badge.fury.io/js/ignore-cli)
 
 
 ### Installation
