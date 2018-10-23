@@ -138,3 +138,6 @@ typings/
 
 # Serverless directories
 .serverless
+
+# Tests
+test/
