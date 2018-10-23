@@ -1,4 +1,5 @@
 # Ignore CLI
+![](https://botvinick.host/images/2018/10/ignore-cli.gif)
 
 [![npm](https://img.shields.io/npm/dw/ignore-cli.svg)](https://www.npmjs.com/package/ignore-cli)
 [![npm](https://img.shields.io/npm/v/ignore-cli.svg)](https://www.npmjs.com/package/ignore-cli)
