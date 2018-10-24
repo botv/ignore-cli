@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const concat = require('concat');
 const fs = require('fs');
 const path = require('path');
+const args = require('args');
 
 inquirer.registerPrompt('search-checkbox', require('inquirer-search-checkbox'));
 
@@ -38,7 +39,19 @@ function success() {
     );
 }
 
+function parseArgs() {
+    const config = {
+        name: 'ignore',
+        mainColor: 'white'
+    };
+
+    return args.parse(process.argv, config)
+}
+
 async function run() {
+    // parse arguments
+    const flags = parseArgs();
+
     // show script introduction
     init();
 
