@@ -1,6 +1,6 @@
 {
   "name": "ignore-cli",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "Create custom .gitignore files",
   "keywords": [
     "git",
@@ -29,8 +29,11 @@
     "args": "^5.0.0",
     "chalk": "^2.4.1",
     "concat": "^1.0.3",
+    "glob": "latest",
     "inquirer": "^6.2.0",
-    "inquirer-search-checkbox": "^1.0.0"
+    "inquirer-search-checkbox": "^1.0.0",
+    "simple-git": "^1.107.0",
+    "is-online": "latest"
   },
   "bin": {
     "ignore": "./index.js"
