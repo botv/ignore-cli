@@ -5,7 +5,6 @@ const chalk = require('chalk');
 const concat = require('concat');
 const fs = require('fs');
 const path = require('path');
-const args = require('args');
 const git = require('simple-git');
 const glob = require('glob');
 const isOnline = require('is-online');
@@ -21,10 +20,6 @@ function init() {
 
 async function updateTemplates() {
 	if (!(await isOnline())) return;
-
-	console.log(
-		chalk.blue('Updating templates...')
-	);
 
 	if (!fs.existsSync('gitignore')) git().clone('https://github.com/github/gitignore', path.join(__dirname, 'gitignore'));
 	else git(path.join(__dirname, 'gitignore')).pull();
@@ -59,19 +54,7 @@ function success() {
 	);
 }
 
-function parseArgs() {
-	const config = {
-		name: 'ignore',
-		mainColor: 'white'
-	};
-
-	return args.parse(process.argv, config);
-}
-
 (async () => {
-	// parse arguments
-	const flags = parseArgs();
-
 	// show script introduction
 	init();
 
